@@ -1,0 +1,128 @@
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background: var(--clr-light);
+  margin-inline: auto;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border: 1px solid black;
+}
+.todo-app h2 {
+  color: #002765;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 0.5rem;
+  /* border: 1px solid black; */
+}
+.lni-notepad {
+  font-size: var(--size-xl);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #edeef0;
+  border-radius: 30px;
+  /* padding-left: 20px; */
+  margin-bottom: 25px;
+}
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+}
+button {
+  position: relative;
+  right: 0px;
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  background: #ff5945;
+  color: #fff;
+  font-size: var(--size-xs);
+  cursor: pointer;
+  border-radius: 40px;
+}
+#input-box {
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+ul li {
+  list-style: none;
+  font-size: var(--size-sm);
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+ul li::before {
+  content: '';
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  background-image: url('unchecked.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  top: 12px;
+  left: 8px;
+}
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+ul li.checked::before {
+  background-image: url('checked.png');
+}
+
+ul li span {
+  position: absolute;
+  left: 210px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+ul li span:hover {
+  background: #edeef0;
+}
+
+/* xs */
+@media (min-width: 475px) {
+  button {
+    padding: 10px 30px;
+    right: 0px;
+  }
+  ul li span {
+    left: 290px;
+  }
+}
+
+/* Sm */
+@media (min-width: 640px) {
+}
+
+/* md */
+/* @media (min-width: 768px) {}  */
+
+/* Lg */
+/* @media (min-width: 1024px) {} */
+
+/* xL */
+/* @media (min-width: 1280px) {}  */
+
+/* 2xL */
+/* @media (min-width: 1536px) {} */

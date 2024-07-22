@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To - Do list</title>
+  </head>
+  <body>
+    <header class="header container">
+      <div id="date-header">
+        <div>
+          <div id="weekday"></div>
+          <div id="day"></div>
+          <div id="month"></div>
+        </div>
+        <div id="task-track">0 current tasks</div>
+      </div>
+    </header>
+    <section class="hero container section">
+      <div class="todo-app">
+        <h2>To-Do List <i class="lni lni-notepad"></i></h2>
+        <div class="row">
+          <input type="text" id="input-box" placeholder="Add new task" />
+          <button id="add-button">Add</button>
+        </div>
+        <ul id="list-box"></ul>
+      </div>
+    </section>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

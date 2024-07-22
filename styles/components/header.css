@@ -1,0 +1,29 @@
+#date-header {
+  padding: 10px;
+  margin-top: 40px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: var(--clr-light);
+  max-width: 540px;
+}
+
+#weekday {
+  color: var(--clr-dark);
+  font-size: var(--size-base);
+}
+#day {
+  color: var(--clr-dark);
+}
+
+#month {
+  color: #ff5945;
+  font-size: var(--size-sm);
+}
+#task-track {
+  font-size: var(--size-base);
+  color: var(--clr-dark);
+}
