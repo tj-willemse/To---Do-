@@ -86,22 +86,11 @@ ul li.checked::before {
   content: '\ead2'; /* Unicode for the checkmark-circle icon */
   color: lightgreen;
 }
-ul li.checked::after {
-  content: '';
-  position: absolute;
-  left: 20px; /* Start of the line */
-  width: 2px; /* Line thickness */
-  background-color: #00ff00; /* Line color */
-  height: 100%; /* Line height to cover the height of the item */
-  top: 50%; /* Center line vertically */
-  transform: translateY(-50%); /* Center line vertically */
-  z-index: -1; /* Place the line behind the text and checkmark */
-}
 
 ul li span {
   /* border: 1px solid red; */
   position: absolute;
-  left: 230px;
+  left: 240px;
   top: 5px;
 }
 
@@ -123,12 +112,15 @@ ul li span {
     right: 0px;
   }
   ul li span {
-    left: 290px;
+    left: 320px;
   }
 }
 
 /* Sm */
 @media (min-width: 640px) {
+  ul li span {
+    left: 350px;
+  }
 }
 
 /* md */
