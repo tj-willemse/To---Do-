@@ -1,3 +1,4 @@
+// import statements
 import '../styles/modern.css';
 import '../styles/style.css';
 import '../styles/components/header.css';
@@ -24,24 +25,20 @@ document.addEventListener('DOMContentLoaded', function () {
         return 'th';
     }
   };
-
   const day = today.getDate();
   const weekdayOptions = { weekday: 'long' };
   const weekday = today.toLocaleDateString(undefined, weekdayOptions);
   const ordinalDate = `${day}${getSuffix(day)}`;
-
   // Format the month
   const monthOptions = { month: 'long' };
   const monthString = today.toLocaleDateString(undefined, monthOptions);
-
   // Display the weekday and date
   weekdayDay.textContent = `${weekday}, ${ordinalDate}`;
-
   // Display the month
   month.textContent = monthString;
 });
 
-// function to add once i have  task
+// updated task count
 const updateTaskCount = function () {
   const taskCount = document
     .getElementById('list-box')
@@ -52,6 +49,7 @@ const updateTaskCount = function () {
   }`;
 };
 
+// adding task functionality
 const inputBox = document.getElementById('input-box');
 const listBox = document.getElementById('list-box');
 const addButton = document
@@ -61,12 +59,24 @@ const addButton = document
       alert('You must write something');
     } else {
       let li = document.createElement('li');
+      li.className = 'task-item'; // Add a class for styling if needed
       li.innerHTML = inputBox.value;
-      listBox.appendChild(li);
+
+      // Create and add the icon
       let span = document.createElement('span');
-      span.innerHTML = '\u00d7';
-      li.appendChild(span); // displaying the x
-      updateTaskCount();
+      span.className = 'remove-icon lni lni-cross-circle'; // Use Lineicons class for "X" icon
+      span.addEventListener('click', function () {
+        li.remove(); // Remove the task when the icon is clicked
+        updateTaskCount(); // Update task count if needed
+        saveData(); // Save data if needed
+      });
+
+      li.appendChild(span); // Add the icon to the list item
+      listBox.appendChild(li); // Add the list item to the list
+
+      inputBox.value = ''; // Clear the input field
+      updateTaskCount(); // Update task count if needed
+      saveData(); // Save data if needed
     }
     inputBox.value = ''; // removes the text after clicking add
     saveData();
@@ -77,7 +87,14 @@ listBox.addEventListener(
   'click',
   function (e) {
     if (e.target.tagName === 'LI') {
-      e.target.classList.toggle('checked');
+      const li = e.target;
+      const isChecked = li.classList.contains('checked');
+      // Toggle the checked class
+      li.classList.toggle('checked');
+      // Trigger confetti only if the task is checked (turns green)
+      if (!isChecked) {
+        triggerConfetti();
+      }
       updateTaskCount();
       saveData();
     } else if (e.target.tagName === 'SPAN') {
@@ -98,3 +115,15 @@ const showTask = function () {
   listBox.innerHTML = localStorage.getItem('data');
 };
 showTask();
+
+function triggerConfetti() {
+  if (typeof confetti === 'function') {
+    confetti({
+      particleCount: 100,
+      angle: 90,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#ff0000', '#00ff00', '#0000ff'],
+    });
+  }
+}

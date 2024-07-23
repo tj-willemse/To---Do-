@@ -39,12 +39,10 @@ input {
   padding: 10px;
 }
 button {
-  position: relative;
-  right: 0px;
   border: none;
   outline: none;
   padding: 10px 15px;
-  background: #ff5945;
+  background: black;
   color: #fff;
   font-size: var(--size-xs);
   cursor: pointer;
@@ -54,50 +52,68 @@ button {
   width: 100%;
   /* border: 1px solid black; */
 }
+.box-content {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
 ul li {
   list-style: none;
-  font-size: var(--size-sm);
-  padding: 12px 8px 12px 50px;
+  font-size: var(--size-lg);
+  /* padding: 12px 8px 12px 50px; */
   user-select: none;
   cursor: pointer;
   position: relative;
 }
 ul li::before {
-  content: '';
-  position: absolute;
-  height: 28px;
+  content: '\ead2';
+  font-family: 'LineIcons';
+  font-size: 18px;
+  color: red;
+  margin-right: 8px;
+  display: inline-block;
+  height: 50px;
   width: 28px;
-  background-image: url('unchecked.png');
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  top: 12px;
-  left: 8px;
 }
 ul li.checked {
   color: #555;
   text-decoration: line-through;
 }
 ul li.checked::before {
-  background-image: url('checked.png');
+  content: '\ead2'; /* Unicode for the checkmark-circle icon */
+  color: lightgreen;
+}
+ul li.checked::after {
+  content: '';
+  position: absolute;
+  left: 20px; /* Start of the line */
+  width: 2px; /* Line thickness */
+  background-color: #00ff00; /* Line color */
+  height: 100%; /* Line height to cover the height of the item */
+  top: 50%; /* Center line vertically */
+  transform: translateY(-50%); /* Center line vertically */
+  z-index: -1; /* Place the line behind the text and checkmark */
 }
 
 ul li span {
+  /* border: 1px solid red; */
   position: absolute;
-  left: 210px;
+  left: 230px;
   top: 5px;
-  width: 40px;
-  height: 40px;
-  font-size: 22px;
-  color: #555;
-  line-height: 40px;
-  text-align: center;
-  border-radius: 50%;
 }
 
-ul li span:hover {
-  background: #edeef0;
+.remove-icon {
+  font-family: 'LineIcons';
+  font-size: 18px; /* Adjust size as needed */
+  color: black; /* Default color */
+  cursor: pointer;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+.remove-icon:hover {
+  color: red; /* Color when the icon is hovered */
 }
 
 /* xs */
